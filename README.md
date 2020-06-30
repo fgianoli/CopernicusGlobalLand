@@ -1,1 +1,1 @@
-# CopernicusGlobalLand
+# Copernicus Global Land Downloader
