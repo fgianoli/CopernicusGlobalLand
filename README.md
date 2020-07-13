@@ -1,6 +1,6 @@
 ![Copernicus Logo](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/logo.png?raw=true)
 
-# Copernicus Global Land Downloader
+# Copernicus Global Land Tools
 
 A PyQGIS script to download Copernicus Global Land Products and to resample 333m products to 1Km.
 
