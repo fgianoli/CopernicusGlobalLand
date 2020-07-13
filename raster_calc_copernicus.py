@@ -77,10 +77,10 @@ class CopernicusRasterCalculator(QgsProcessingAlgorithm):
         return 'Copernicus raster calculator'
 
     def group(self):
-        return ''
+        return 'Copernicus Global Land Tools'
 
     def groupId(self):
-        return ''
+        return 'Copernicus Global Land Tools'
 
     def createInstance(self):
         return CopernicusRasterCalculator()
