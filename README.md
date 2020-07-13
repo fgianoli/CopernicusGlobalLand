@@ -1,4 +1,4 @@
-# Copernicus Global Land Tools
+# Copernicus Global Land Downloader
 
 A PyQGIS script to download Copernicus Global Land Products and to resample 333m products to 1Km.
 
@@ -21,7 +21,13 @@ Once installed, will be possible to run each script and will be possible to add 
 
 ## How to use the Downloader
 
-to use the Copernicus Global Land downloader...
+This tool allows users to connect to the manifest of CGL products and to choose which one the user wants to download. The algorithm downloads the NetCDF file and converts it to Geotiff.  
+To use this tool it is necessary to have a valid account to CGL (https://land.copernicus.eu/) website.
+- Select the product collection to download and the day. The algorithm will download the product with the closest date.  
+- Download directory is the directory in which the product will be downloaded and converted to geotiff.  
+- Download file: this is an additional parameter, leave it empty.
+
+![Downloader](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/doc/downloader.JPG?raw=true)
 
 ## CGL resampler
 first of all....
