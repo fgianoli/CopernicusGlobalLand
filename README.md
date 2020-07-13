@@ -15,8 +15,11 @@ The reason behind the choice to develop a new script instead of a QGIS Plugin is
 In order to install these tools, download the trpository and open QGIS 3.x.  
 Under the Scripts dropdown menu on the top of the Processing toolbox, select **Add script to Toolbox** and then browse to the repository and select the *.py* files.  
 Automatically, in the Processing toolbox will be added a new *Scripts* folder with a group of new algorithms named **Copernicus Global Land Tools**.  
- 
-.
+
+![Scripts Toolbox](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/doc/toolbox.JPG?raw=true)
+
+Once installed, will be possible to run each script and will be possible to add these script in a processing chain using the *Graphical Modeler* of QGIS. 
+
 
 ## How to use the Downloader
 
@@ -28,11 +31,12 @@ first of all....
 ### Results of the resampler
 Lorem ipsum
 
-## Bibliography
+### Bibliography
 
 Sherman Gary, 2018. *The PyQGIS Programmer’s Guide*. Locate Press  
 
 
-## Acknowledgments
+## Acknowledgments & Authors
 We thank for the help in developing and testing these tools:  
-*Enrico Ferreguti, Xavier Rotllan Puig, Pier Lorenzo Marasco, Martino Boni*
+*Enrico Ferreguti, Xavier Rotllan Puig, Pier Lorenzo Marasco, Martino Boni*  
+Author: Federico Gianoli
