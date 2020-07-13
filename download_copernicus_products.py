@@ -156,34 +156,32 @@ class Download_copernicus(QgsProcessingAlgorithm):
             
         '''
                 
-        Xmin = -180 + ((1 / 112) / 2)
-        Xmax = 180 - ((1 / 112) / 2)
-        Ymax = 80 - ((1 / 112) / 2)
-        Ymin = -60 + ((1 / 112) / 2)
+        # Xmin = -180 + ((1 / 112) / 2)
+        # Xmax = 180 - ((1 / 112) / 2)
+        # Ymax = 80 - ((1 / 112) / 2)
+        # Ymin = -60 + ((1 / 112) / 2)
 
-        pixelX= 1./112.
-        pixelY= 1./112.
+        # pixelX= 1./112.
+        # pixelY= 1./112.
 
-        stats= input_raster.dataProvider().bandStatistics(1)
+        # stats= input_raster.dataProvider().bandStatistics(1)
 
-        src_min= stats.minimumValue
-        src_max= stats.maximumValue
-        dst_min= stats.minimumValue
-        dst_max= stats.maximumValue
+        # src_min= stats.minimumValue
+        # src_max= stats.maximumValue
+        # dst_min= stats.minimumValue
+        # dst_max= stats.maximumValue
 
-        print (src_min, src_max, dst_min, dst_max)
+        # print (src_min, src_max, dst_min, dst_max)
 
-        #tra_extra= "-of Gtiff -co COMPRESS=DEFLATE -co PREDICTOR=2 -co ZLEVEL=9 -r average -outsize 0 " + str(int(input_raster.height()/3))
 
         tra_extra = "-of Gtiff -co COMPRESS=DEFLATE -co PREDICTOR=2 -co ZLEVEL=9 "
-        tra_extra += " -projwin " + str(Xmin) + " " + str(Ymax) + " " + str(Xmax) + " " + str(Ymin)
-        tra_extra += " -r average -tr " + str(pixelX) + " " + str(pixelY)
-        tra_extra += " -scale " + str(src_min) + " " + str(src_max) + " " + str(dst_min) + " " + str(dst_max)
+        #tra_extra += " -projwin " + str(Xmin) + " " + str(Ymax) + " " + str(Xmax) + " " + str(Ymin)
+        #tra_extra += " -r average -tr " + str(pixelX) + " " + str(pixelY)
+        #tra_extra += " -scale " + str(src_min) + " " + str(src_max) + " " + str(dst_min) + " " + str(dst_max)
 
 
         alg_params = {
             'INPUT': input_raster,
-            #'EXTRA': "-of Gtiff -co COMPRESS=DEFLATE -co PREDICTOR=2 -co ZLEVEL=9 -r average -outsize 0 15680",
             'EXTRA': tra_extra,
             'OUTPUT': output_tiff
         }
@@ -201,10 +199,10 @@ class Download_copernicus(QgsProcessingAlgorithm):
         return 'Download Copernicus Global Land'
 
     def group(self):
-        return ''
+        return 'Copernicus Global Land Tools'
 
     def groupId(self):
-        return ''
+        return 'Copernicus Global Land Tools'
 
     def shortHelpString(self):
         """
