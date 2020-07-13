@@ -3,6 +3,7 @@ from qgis.core import QgsProcessingAlgorithm
 from qgis.core import QgsProcessingMultiStepFeedback
 from qgis.core import QgsProcessingParameterRasterLayer
 from qgis.core import QgsProcessingParameterRasterDestination
+from qgis.core import QgsProcessingParameterString
 from qgis.core import QgsProcessingParameterFileDestination,QgsProcessingParameterExtent
 from qgis.core import QgsCoordinateReferenceSystem
 from qgis.core import QgsProject,QgsRasterLayer
@@ -15,8 +16,9 @@ class Copernicus(QgsProcessingAlgorithm):
     def initAlgorithm(self, config=None):
         self.addParameter(QgsProcessingParameterRasterLayer('raster', 'raster', defaultValue=None))
         self.addParameter(QgsProcessingParameterRasterDestination('Final_resampled', 'final_resampled', createByDefault=True, defaultValue=None))
-        self.addParameter(QgsProcessingParameterExtent('EXTENT', 'EXTENT', defaultValue=None, optional=True))
-        self.addParameter(QgsProcessingParameterRasterLayer('SAMPLE', 'SAMPLE', defaultValue=None, optional=True))
+        #self.addParameter(QgsProcessingParameterExtent('EXTENT', 'EXTENT', defaultValue=None, optional=True))
+        #self.addParameter(QgsProcessingParameterRasterLayer('SAMPLE', 'SAMPLE', defaultValue=None, optional=True))
+        self.addParameter(QgsProcessingParameterString('method', 'Resampling method', defaultValue='average', optional=True ))
 
     def processAlgorithm(self, parameters, context, model_feedback):
         # Use a multi-step feedback, so that individual child algorithm progress reports are adjusted for the
@@ -67,7 +69,9 @@ class Copernicus(QgsProcessingAlgorithm):
         # translate Average
         tra_extra = "-of Gtiff -co COMPRESS=DEFLATE -co PREDICTOR=2 -co ZLEVEL=9 "
         tra_extra += " -projwin " + str(Xmin) + " " + str(Ymax) + " " + str(Xmax) + " " + str(Ymin)
-        tra_extra += " -r average -tr " + str(pixelX) + " " + str(pixelY)
+        tra_extra += " -r " + str(parameters['method'])
+        #tra_extra += " -r average"
+        tra_extra += " -tr " + str(pixelX) + " " + str(pixelY)
         tra_extra += " -scale " + str(src_min) + " " + str(src_max) + " " + str(dst_min) + " " + str(dst_max)
 
         alg_params = {
@@ -112,22 +116,22 @@ class Copernicus(QgsProcessingAlgorithm):
         average = QgsRasterLayer(outputs['TranslateAverage']['OUTPUT'])
         mode = QgsRasterLayer(outputs['TranslateMode']['OUTPUT'])
 
-        if 'SAMPLE' in parameters:
-            sample_layer = self.parameterAsRasterLayer(parameters,"SAMPLE",context)
-        else:
-            if 'EXTENT' in parameters:
-                alg_params = {
-                    'DATA_TYPE': 5,
-                    'INPUT': average,
-                    'NODATA': -9999,
-                    'PROJWIN': parameters['EXTENT'],
-                    'OPTIONS': '',
-                    'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
-                }
-                output_clip = processing.run('gdal:cliprasterbyextent', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
-                sample_layer = QgsRasterLayer(output_clip['OUTPUT'],'SAMPLE','gdal')
-            else:
-                sample_layer = average
+        # if 'SAMPLE' in parameters:
+        #     sample_layer = self.parameterAsRasterLayer(parameters,"SAMPLE",context)
+        # else:
+        #     if 'EXTENT' in parameters:
+        #         alg_params = {
+        #             'DATA_TYPE': 5,
+        #             'INPUT': average,
+        #             'NODATA': -9999,
+        #             'PROJWIN': parameters['EXTENT'],
+        #             'OPTIONS': '',
+        #             'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
+        #         }
+        #         output_clip = processing.run('gdal:cliprasterbyextent', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
+        #         sample_layer = QgsRasterLayer(output_clip['OUTPUT'],'SAMPLE','gdal')
+        #     else:
+        #         sample_layer = average
                 
         sample_layer = average
 
