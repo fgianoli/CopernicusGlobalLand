@@ -139,42 +139,56 @@ class Copernicus(QgsProcessingAlgorithm):
             'LAYERS': [average, mode],
             'FORMULA': '"A@1" * "B@1"',
             'SAMPLE': sample_layer,
-            'OUTPUT': parameters['Final_resampled']
+            'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
         }
         outputs['CopernicusRasterCalculator'] = processing.run('script:copernicusrastercalculator', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
-        results['Final_resampled'] = outputs['CopernicusRasterCalculator']['OUTPUT']
+        
+        feedback.setCurrentStep(5)
+        if feedback.isCanceled():
+            return {}
+        
+         # translate compress
+        tra_extra_compress = "-of Gtiff -co COMPRESS=DEFLATE -co PREDICTOR=2 -co ZLEVEL=9 "
+        tra_extra_compress += " -projwin " + str(Xmin) + " " + str(Ymax) + " " + str(Xmax) + " " + str(Ymin)
+        tra_extra_compress += " -tr " + str(pixelX) + " " + str(pixelY)
+
+        alg_params = {
+            'COPY_SUBDATASETS': False,
+            'DATA_TYPE': 0,
+            'EXTRA': tra_extra_compress,
+            'INPUT': outputs['CopernicusRasterCalculator']['OUTPUT'],
+            'NODATA': None,
+            'OPTIONS': '',
+            'TARGET_CRS': None,
+            'OUTPUT': parameters['Final_resampled']
+        }
+        outputs['TranslateCompress'] = processing.run('gdal:translate', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
+        results['Final_resampled'] = outputs['TranslateCompress']['OUTPUT']
         return results
-
-
-
-
-        # # Raster calculator
-        # alg_params = {
-        #     'CELLSIZE': 0,
-        #     'CRS': None,
-        #     'EXPRESSION': '\"average@1\" * \"mode@1\"',
-        #     'EXTENT': None,
-        #     'LAYERS': average,
-        #     'OUTPUT': parameters['Final_resampled']
-        # }
-        # outputs['RasterCalculator'] = processing.run('qgis:rastercalculator', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
-        # print("Checkpoint Charlie: raster calculator done")
-        # results['Final_resampled'] = outputs['RasterCalculator']['OUTPUT']
-        # return results
-
-
+      
 
     def name(self):
         return 'Copernicus'
 
     def displayName(self):
-        return 'Copernicus'
+        return 'Copernicus GL Resampler'
 
     def group(self):
-        return 'Copernicus'
+        return 'Copernicus Global Land Tools'
 
     def groupId(self):
-        return 'Copernicus'
+        return 'Copernicus Global Land Tools'
+    
+    def shortHelpString(self):
+        """
+        Returns a localised short helper string for the algorithm. This string
+        should provide a basic description about what the algorithm does and the
+        parameters and outputs associated with it..
+        """
+        return "This algorithm allows to download Copernicus Global Land products and converts the native Netcdf files into geotiff." \
+               "Select the product collection to downlad and the day. The algorithm will download the product with the closest date. " \
+               "Download directory is the directory in wich the product will be downloaded and converted to geotiff. " \
+               "Download file: it is an addionatal parameter, leave empty"
 
     def createInstance(self):
         return Copernicus()
