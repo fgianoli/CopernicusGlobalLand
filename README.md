@@ -48,7 +48,7 @@ The UI of this algorithm is the following:
 ![resampler_UI](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/doc/resampler.JPG?raw=true)
 
 - Input Raster: the input raster to resample (NetCDF, Geotiff...)
-- Resampling method: It is possible to choose the resampling method to use. Possible values: nearest, bilinear,cubic,cubicspline,lanczos,average,mode (see GDAL_Translate options). Default value: average.
+- Resampling method: It is possible to choose the resampling method to use. Possible values: *nearest, bilinear,cubic,cubicspline,lanczos,average,mode* (see GDAL_Translate options). Default value: average.
 - Reclassify valid data: this parameter is used to reclassify the input raster to exclude the not valid parameters. Default value: [-1,1,1,1,255,0] . The Default value is set for NDVI products.  [min_valid_value <= max_valid_value --> 1, min_not_valid_data <= max_not_valid_data --> 0]  
 - Output: the output file
 
@@ -63,10 +63,22 @@ Therefore, after reading the files, all pixels with NDVI values larger than 0.92
 In the same way, all the other products’ non-valid values were transformed to NAs according to their valid ranges, which can be seen in nex table.  
 In addition, other supporting information of each product can be found both in the netCDF file metadata and in their Product User Manual at https://land.copernicus.eu/global/products/.
 
-![table2](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/doc/table2.JPG?raw=true)
+[Cut-off of valid values for each product/layer](https://github.com/xavi-rp/ResampleTool_notebook/blob/master/Table_cutoff_and_resampleMethod.csv)
 
 ### Results of the resampler
-Lorem ipsum
+The tool has been tested and compared with the results of the [R Notebook](https://github.com/xavi-rp/ResampleTool_notebook)  
+
+| Product | Date | Reclassify table | Resampling method |
+|----|----|----|----|
+| NDVI |01/05/2019  | [-1,1,1,1,255,0] | Average 
+| FAPAR|10/05/2019  | [0,7,1,7,210,0] | Average
+| LAI|10/05/2019  | [-1,1,1,1,255,0] | Average
+| FCOVER |10/05/2019  | [0,1,1,1,250,0] | Average
+| DMP|10/05/2019  | [0,327.67,1,327.67,3267,0] | Average
+|
+
+
+
 
 [Read more about the Resampling Tool](https://github.com/xavi-rp/ResampleTool_notebook/blob/master/Resample_Report_v2.5.pdf)
 
