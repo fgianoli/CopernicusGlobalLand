@@ -7,6 +7,7 @@ from qgis.core import QgsProcessingParameterString
 from qgis.core import QgsProcessingParameterFileDestination,QgsProcessingParameterExtent
 from qgis.core import QgsCoordinateReferenceSystem
 from qgis.core import QgsProject,QgsRasterLayer
+import ast
 
 import processing
 
@@ -14,11 +15,13 @@ import processing
 class Copernicus(QgsProcessingAlgorithm):
 
     def initAlgorithm(self, config=None):
-        self.addParameter(QgsProcessingParameterRasterLayer('raster', 'raster', defaultValue=None))
-        self.addParameter(QgsProcessingParameterRasterDestination('Final_resampled', 'final_resampled', createByDefault=True, defaultValue=None))
+        self.addParameter(QgsProcessingParameterRasterLayer('raster', 'Input Raster', defaultValue=None))
+        self.addParameter(QgsProcessingParameterRasterDestination('Final_resampled', 'Output', createByDefault=True, defaultValue=None))
         #self.addParameter(QgsProcessingParameterExtent('EXTENT', 'EXTENT', defaultValue=None, optional=True))
         #self.addParameter(QgsProcessingParameterRasterLayer('SAMPLE', 'SAMPLE', defaultValue=None, optional=True))
         self.addParameter(QgsProcessingParameterString('method', 'Resampling method', defaultValue='average', optional=True ))
+        self.addParameter(QgsProcessingParameterString('reclassify', 'Reclassify valid data', defaultValue='[-1,1,1,1,255,0]', optional=True ))
+
 
     def processAlgorithm(self, parameters, context, model_feedback):
         # Use a multi-step feedback, so that individual child algorithm progress reports are adjusted for the
@@ -56,7 +59,7 @@ class Copernicus(QgsProcessingAlgorithm):
             'NO_DATA': -9999,
             'RANGE_BOUNDARIES': 0,
             'RASTER_BAND': 1,
-            'TABLE': [-1,1,1,1,255,0],
+            'TABLE': ast.literal_eval(parameters['reclassify']),
             'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
         }
         outputs['RiclassificaConTabella'] = processing.run('native:reclassifybytable', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
@@ -189,10 +192,10 @@ class Copernicus(QgsProcessingAlgorithm):
         should provide a basic description about what the algorithm does and the
         parameters and outputs associated with it..
         """
-        return "This algorithm allows to download Copernicus Global Land products and converts the native Netcdf files into geotiff." \
-               "Select the product collection to downlad and the day. The algorithm will download the product with the closest date. " \
-               "Download directory is the directory in wich the product will be downloaded and converted to geotiff. " \
-               "Download file: it is an addionatal parameter, leave empty"
+        return "The CGLS vegetation-related products (i.e. NDVI, LAI, FAPAR…), based on PROBA-V observations, have been distributed at 1km and 333m spatial resolution until June, 2020. However, as of July, 2020, all Near Real Time (NRT) production of the vegetation biophysical variables, based on Sentinel-3 observations, are no longer provided at 1km resolution. Nonetheless, users interested in continuing their 1km time series can use a resample of the new 333m products." \
+               "This algorithm allows to resample the 333meters Copernicus Products to 1Km preserving the spatial extension of 1Km time series." \
+               "It is possible to choose the resampling method to use. Possible values: nearest, bilinear,cubic,cubicspline,lanczos,average,mode. According to our tests, for NDVI, FAPAR, LAI, RMSE is better to use the Average.  " \
+
 
     def createInstance(self):
         return Copernicus()
