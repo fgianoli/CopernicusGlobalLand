@@ -67,6 +67,7 @@ See the [Cut-off of valid values for each product/layer](https://github.com/xavi
 
 ### Results of the resampling tool
 The tool has been tested and the results have been compared with the Original 1Km series and with the results of the [R Notebook](https://github.com/xavi-rp/ResampleTool_notebook)  
+[Read more about the Resampling Tool](https://github.com/xavi-rp/ResampleTool_notebook/blob/master/Resample_Report_v2.5.pdf)
 
 | Product | Date | Reclassify table | Resampling method |
 |----|----|----|----|
@@ -178,7 +179,7 @@ The tool has been tested and the results have been compared with the Original 1K
 
 
 
-[Read more about the Resampling Tool](https://github.com/xavi-rp/ResampleTool_notebook/blob/master/Resample_Report_v2.5.pdf)
+
 
 ### Bibliography
 
