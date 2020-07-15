@@ -66,7 +66,7 @@ In addition, other supporting information of each product can be found both in t
 See the [Cut-off of valid values for each product/layer](https://github.com/xavi-rp/ResampleTool_notebook/blob/master/Table_cutoff_and_resampleMethod.csv)
 
 ### Results of the resampler
-The tool has been tested and compared with the results of the [R Notebook](https://github.com/xavi-rp/ResampleTool_notebook)  
+The tool has been tested and the results have been compared with the Original 1Km series and with the results of the [R Notebook](https://github.com/xavi-rp/ResampleTool_notebook)  
 
 | Product | Date | Reclassify table | Resampling method |
 |----|----|----|----|
@@ -75,6 +75,82 @@ The tool has been tested and compared with the results of the [R Notebook](https
 | LAI|10/05/2019  | [-1,1,1,1,255,0] | Average |
 | FCOVER |10/05/2019  | [0,1,1,1,250,0] | Average |
 | DMP|10/05/2019  | [0,327.67,1,327.67,3267,0] | Average |
+
+
+
+
+
+|   | NDVI-Europe                       |             |                        |                     |
+|---|-----------------------------------|-------------|------------------------|---------------------|
+|   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
+| 1 | Original 1Km Product - R Notebook | 0.97951     | 0.05048                | 0.03123             |
+| 2 | Original 1Km Product - QGIS Tool  | 0.97532     | 0.05476                | 0.03326             |
+| 3 | R Notebook - QGIS Tool            | 0.99999     | 0.00114                | 0.00098             |
+
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/NDVI_Europe/resample_correlation_QGISAggr.jpg?raw=true)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/NDVI_Europe/resample_correlation_R_QGIS_Aggr.jpg?raw=true) 
+
+|   | LAI-Europe                        |             |                        |                     |
+|---|-----------------------------------|-------------|------------------------|---------------------|
+|   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
+| 1 | Original 1Km Product - R Notebook | 0.9416      | 0.46936                | 0.31021             |
+| 2 | Original 1Km Product - QGIS Tool  | 0.94005     | 0.47589                | 0.31375             |
+| 3 | R Notebook - QGIS Tool            | 0.99995     | 0.01297                | 0.00737             |
+
+|   | LAI-Amazonia                      |             |                        |                     |
+|---|-----------------------------------|-------------|------------------------|---------------------|
+|   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
+| 1 | Original 1Km Product - R Notebook | 0.70523     | 0.90322                | 0.65949             |
+| 2 | Original 1Km Product - QGIS Tool  | 0.70638     | 0.96189                | 0.68983             |
+| 3 | R Notebook - QGIS Tool            | 0.99988     | 0.01338                | 0.00834             |
+
+|   | FCOVER-Europe                     |             |                        |                     |
+|---|-----------------------------------|-------------|------------------------|---------------------|
+|   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
+| 1 | Original 1Km Product - R Notebook | 0.97581     | 0.06967                | 0.04841             |
+| 2 | Original 1Km Product - QGIS Tool  | 0.97396     | 0.07195                | 0.04931             |
+| 3 | R Notebook - QGIS Tool            | 0.99998     | 0.00204                | 0.00095             |
+
+|   | FCOVER-Amazonia                   |             |                        |                     |
+|---|-----------------------------------|-------------|------------------------|---------------------|
+|   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
+| 1 | Original 1Km Product - R Notebook | 0.70206     | 0.11937                | 0.0835              |
+| 2 | Original 1Km Product - QGIS Tool  | 0.71047     | 0.12503                | 0.0865              |
+| 3 | R Notebook - QGIS Tool            | 0.99988     | 0.00197                | 9e-04               |
+
+|   | FAPAR-W Africa                    |             |                        |                     |
+|---|-----------------------------------|-------------|------------------------|---------------------|
+|   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
+| 1 | Original 1Km Product - R Notebook | 0.986       | 0.05055                | 0.02808             |
+| 2 | Original 1Km Product - QGIS Tool  | 0.98201     | 0.05913                | 0.03304             |
+| 3 | R Notebook - QGIS Tool            | 0.99999     | 0.00101                | 0.00063             |
+
+|   | FAPAR-Europe                      |             |                        |                     |
+|---|-----------------------------------|-------------|------------------------|---------------------|
+|   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
+| 1 | Original 1Km Product - R Notebook | 0.97449     | 0.06302                | 0.04307             |
+| 2 | Original 1Km Product - QGIS Tool  | 0.9723      | 0.0655                 | 0.04406             |
+| 3 | R Notebook - QGIS Tool            | 0.99998     | 0.0017                 | 0.00096             |
+
+|   | FAPAR-Amazonia                    |             |                        |                     |
+|---|-----------------------------------|-------------|------------------------|---------------------|
+|   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
+| 1 | Original 1Km Product - R Notebook | 0.67006     | 0.09832                | 0.0527              |
+| 2 | Original 1Km Product - QGIS Tool  | 0.68385     | 0.10462                | 0.0562              |
+| 3 | R Notebook - QGIS Tool            | 0.99993     | 0.00111                | 0.00087             |
+
+|   | DMP-W Africa                      |             |                        |                     |
+|---|-----------------------------------|-------------|------------------------|---------------------|
+|   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
+| 1 | Original 1Km Product - R Notebook | 0.98686     | 5.32346                | 2.69047             |
+| 2 | Original 1Km Product - QGIS Tool  | 0.98407     | 6.04546                | 3.1398              |
+| 3 | R Notebook - QGIS Tool            | 1           | 0.02141                | 0.00264             |
+
+|   | DMP-Europe                        |             |                        |                     |
+|---|-----------------------------------|-------------|------------------------|---------------------|
+|   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
+| 1 | Original 1Km Product - R Notebook | 0.9763      | 6.14813                | 4.11369             |
+| 2 | Original 1Km Product - QGIS Tool  | 0.97586     | 6.19854                | 4.13796             |
+| 3 | R Notebook - QGIS Tool            | 0.99999     | 0.0902                 | 0.00527             |
 
 
 
