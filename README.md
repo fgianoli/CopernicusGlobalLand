@@ -87,7 +87,7 @@ The tool has been tested and the results have been compared with the Original 1K
 | 2 | Original 1Km Product - QGIS Tool  | 0.97532     | 0.05476                | 0.03326             |
 | 3 | R Notebook - QGIS Tool            | 0.99999     | 0.00114                | 0.00098             |
 
-![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/NDVI_Europe/resample_correlation_QGISAggr.jpg?raw=true=150x150)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/NDVI_Europe/resample_correlation_R_QGIS_Aggr.jpg?raw=true=150x150) 
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/NDVI_Europe/resample_correlation_QGISAggr.jpg?raw=true=100x100)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/NDVI_Europe/resample_correlation_R_QGIS_Aggr.jpg?raw=true=100x100) 
 
 |   | LAI-Europe                        |             |                        |                     |
 |---|-----------------------------------|-------------|------------------------|---------------------|
@@ -96,12 +96,18 @@ The tool has been tested and the results have been compared with the Original 1K
 | 2 | Original 1Km Product - QGIS Tool  | 0.94005     | 0.47589                | 0.31375             |
 | 3 | R Notebook - QGIS Tool            | 0.99995     | 0.01297                | 0.00737             |
 
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/LAI_Europe/resample_correlation_QGISAggr.jpg?raw=true=100x100)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/LAI_Europe/resample_correlation_R_QGIS_Aggr.jpg?raw=true=100x100) 
+
+
 |   | LAI-Amazonia                      |             |                        |                     |
 |---|-----------------------------------|-------------|------------------------|---------------------|
 |   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
 | 1 | Original 1Km Product - R Notebook | 0.70523     | 0.90322                | 0.65949             |
 | 2 | Original 1Km Product - QGIS Tool  | 0.70638     | 0.96189                | 0.68983             |
 | 3 | R Notebook - QGIS Tool            | 0.99988     | 0.01338                | 0.00834             |
+
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/LAI_Amazonia/resample_correlation_QGISAggr.jpg?raw=true=100x100)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/LAI_Amazonia/resample_correlation_R_QGIS_Aggr.jpg?raw=true=100x100) 
+
 
 |   | FCOVER-Europe                     |             |                        |                     |
 |---|-----------------------------------|-------------|------------------------|---------------------|
@@ -110,12 +116,18 @@ The tool has been tested and the results have been compared with the Original 1K
 | 2 | Original 1Km Product - QGIS Tool  | 0.97396     | 0.07195                | 0.04931             |
 | 3 | R Notebook - QGIS Tool            | 0.99998     | 0.00204                | 0.00095             |
 
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/FCOVER_Europe/resample_correlation_QGISAggr.jpg?raw=true=100x100)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/FCOVER_Europe/resample_correlation_R_QGIS_Aggr.jpg?raw=true=100x100) 
+
+
 |   | FCOVER-Amazonia                   |             |                        |                     |
 |---|-----------------------------------|-------------|------------------------|---------------------|
 |   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
 | 1 | Original 1Km Product - R Notebook | 0.70206     | 0.11937                | 0.0835              |
 | 2 | Original 1Km Product - QGIS Tool  | 0.71047     | 0.12503                | 0.0865              |
 | 3 | R Notebook - QGIS Tool            | 0.99988     | 0.00197                | 9e-04               |
+
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/FCOVER_Amazonia/resample_correlation_QGISAggr.jpg?raw=true=100x100)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/FCOVER_Amazonia/resample_correlation_R_QGIS_Aggr.jpg=100x100) 
+
 
 |   | FAPAR-W Africa                    |             |                        |                     |
 |---|-----------------------------------|-------------|------------------------|---------------------|
@@ -124,6 +136,9 @@ The tool has been tested and the results have been compared with the Original 1K
 | 2 | Original 1Km Product - QGIS Tool  | 0.98201     | 0.05913                | 0.03304             |
 | 3 | R Notebook - QGIS Tool            | 0.99999     | 0.00101                | 0.00063             |
 
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/FAPAR_WAfrica/resample_correlation_QGISAggr.jpg=100x100)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/FAPAR_WAfrica/resample_correlation_R_QGIS_Aggr.jpg=100x100) 
+
+
 |   | FAPAR-Europe                      |             |                        |                     |
 |---|-----------------------------------|-------------|------------------------|---------------------|
 |   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
@@ -131,12 +146,18 @@ The tool has been tested and the results have been compared with the Original 1K
 | 2 | Original 1Km Product - QGIS Tool  | 0.9723      | 0.0655                 | 0.04406             |
 | 3 | R Notebook - QGIS Tool            | 0.99998     | 0.0017                 | 0.00096             |
 
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/FAPAR_Europe/resample_correlation_QGISAggr.jpg=100x100)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/FAPAR_Europe/resample_correlation_R_QGIS_Aggr.jpg=100x100) 
+
+
 |   | FAPAR-Amazonia                    |             |                        |                     |
 |---|-----------------------------------|-------------|------------------------|---------------------|
 |   |                                   | Pearson's r | Root Mean Square Error | Mean Absolute Error |
 | 1 | Original 1Km Product - R Notebook | 0.67006     | 0.09832                | 0.0527              |
 | 2 | Original 1Km Product - QGIS Tool  | 0.68385     | 0.10462                | 0.0562              |
 | 3 | R Notebook - QGIS Tool            | 0.99993     | 0.00111                | 0.00087             |
+
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/FAPAR_Amazonia/resample_correlation_QGISAggr.jpg=100x100)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/FAPAR_Amazonia/resample_correlation_R_QGIS_Aggr.jpg=100x100) 
+
 
 |   | DMP-W Africa                      |             |                        |                     |
 |---|-----------------------------------|-------------|------------------------|---------------------|
