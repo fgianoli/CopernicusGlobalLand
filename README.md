@@ -173,6 +173,7 @@ The tool has been tested and the results have been compared with the Original 1K
 | 2 | Original 1Km Product - QGIS Tool  | 0.97586     | 6.19854                | 4.13796             |
 | 3 | R Notebook - QGIS Tool            | 0.99999     | 0.0902                 | 0.00527             |
 
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/DMP_WAfrica/resample_correlation_QGISAggr.jpg?raw=true=100x100)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/DMP_WAfrica/resample_correlation_R_QGIS_Aggr.jpg?raw=true=100x100) 
 
 
 
