@@ -65,7 +65,7 @@ In addition, other supporting information of each product can be found both in t
 
 See the [Cut-off of valid values for each product/layer](https://github.com/xavi-rp/ResampleTool_notebook/blob/master/Table_cutoff_and_resampleMethod.csv)
 
-### Results of the resampler
+### Results of the resampling tool
 The tool has been tested and the results have been compared with the Original 1Km series and with the results of the [R Notebook](https://github.com/xavi-rp/ResampleTool_notebook)  
 
 | Product | Date | Reclassify table | Resampling method |
@@ -87,7 +87,7 @@ The tool has been tested and the results have been compared with the Original 1K
 | 2 | Original 1Km Product - QGIS Tool  | 0.97532     | 0.05476                | 0.03326             |
 | 3 | R Notebook - QGIS Tool            | 0.99999     | 0.00114                | 0.00098             |
 
-![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/NDVI_Europe/resample_correlation_QGISAggr.jpg?raw=true)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/NDVI_Europe/resample_correlation_R_QGIS_Aggr.jpg?raw=true) 
+![QGIS_Original](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/NDVI_Europe/resample_correlation_QGISAggr.jpg?raw=true =250x250)  ![QGIS_R](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/scatterplots/NDVI_Europe/resample_correlation_R_QGIS_Aggr.jpg?raw=true | width=100) 
 
 |   | LAI-Europe                        |             |                        |                     |
 |---|-----------------------------------|-------------|------------------------|---------------------|
