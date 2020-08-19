@@ -41,7 +41,7 @@ In order to perform this conversion, the following steps are needed:
 - Multiply these results with the result of 3x3 resampling using average.  
 All these steps are needed in order to include the condition that at least 5 out of the 9 pixels have to have valid values (i.e. not NA) to return a valid value for the resampled pixel (333m to 1Km).  
 
-![process](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/process.jpg?raw=true)
+![process](https://github.com/fgianoli/CopernicusGlobalLand/blob/master/img/schema_int.JPG?raw=true)
 
 The UI of this algorithm is the following:
 
