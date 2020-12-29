@@ -115,12 +115,12 @@ class LandCoverDownload(QgsProcessingAlgorithm):
 
 
     def initAlgorithm(self, config=None):
-        self.services = ['Bare-CoverFraction-layer', 'BuiltUp-CoverFraction-layer', 'Crops-CoverFraction-layer',
+        self.services = [None,'Bare-CoverFraction-layer', 'BuiltUp-CoverFraction-layer', 'Crops-CoverFraction-layer',
                          'DataDensityIndicator', 'Discrete-Classification-map', 'Discrete-Classification-proba',
                          'Forest-Type-layer', 'Grass-CoverFraction-layer', 'MossLichen-CoverFraction-layer',
                          'PermanentWater-CoverFraction-layer', 'SeasonalWater-CoverFraction-layer',
                          'Shrub-CoverFraction-layer', 'Snow-CoverFraction-layer', 'Tree-CoverFraction-layer']
-        self.yearlist = ['2015', '2016', '2017', '2018', '2019']
+        self.yearlist = [None,'2015', '2016', '2017', '2018', '2019']
 
         self.addParameter(QgsProcessingParameterEnum('prodotto', 'Product', options=self.services, defaultValue=None))
         self.addParameter(QgsProcessingParameterEnum('anno', 'Year', options=self.yearlist, defaultValue=None))
