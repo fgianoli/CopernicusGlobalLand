@@ -11,7 +11,6 @@
         copyright            : (C) 2020 by Federico Gianoli, JRC
         email                : gianoli.federico@gmail.com
  ***************************************************************************/
-
 /***************************************************************************
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -62,12 +61,6 @@ from qgis.core import QgsProcessingParameterString
 
 class LandCoverDownload(QgsProcessingAlgorithm):
 
-    # Constants used to refer to parameters and outputs. They will be
-    # used when calling the algorithm from another algorithm, or when
-    # calling from the QGIS console.
-
-    # INPUT = 'INPUT'
-    # OUTPUT = 'OUTPUT'
 
     def tr(self, string):
         """
@@ -159,27 +152,27 @@ class LandCoverDownload(QgsProcessingAlgorithm):
             filename = file.split('/')[2]
             year = file.split('/')[0]
             tile = file.split('/')[1]
-            if prodotto is not None and prodotto in file:
-                if anno is not None and anno in file:
-                    if nome_tile is not None and nome_tile in file:
+            if prodotto and prodotto in file:
+                if anno and anno in file:
+                    if nome_tile and nome_tile in file:
                         urls.append(base_URL + year + '/' + tile + '/' + filename)
-                    if nome_tile is None:
+                    if not nome_tile:
                         urls.append(base_URL + year + '/' + tile + '/' + filename)
-                if anno is None:
-                    if nome_tile is not None and nome_tile in file:
+                if not anno:
+                    if nome_tile and nome_tile in file:
                         urls.append(base_URL + year + '/' + tile + '/' + filename)
-                    if nome_tile is None:
+                    if not nome_tile:
                         urls.append(base_URL + year + '/' + tile + '/' + filename)
-            if prodotto is None:
-                if anno is not None and anno in file:
-                    if nome_tile is not None and nome_tile in file:
+            if not prodotto:
+                if anno and anno in file:
+                    if nome_tile and nome_tile in file:
                         urls.append(base_URL + year + '/' + tile + '/' + filename)
-                    if nome_tile is None:
+                    if not nome_tile:
                         urls.append(base_URL + year + '/' + tile + '/' + filename)
-                if anno is None:
-                    if nome_tile is not None and nome_tile in file:
+                if not anno:
+                    if nome_tile and nome_tile in file:
                         urls.append(base_URL + year + '/' + tile + '/' + filename)
-                    if nome_tile is None:
+                    if not nome_tile:
                         urls.append(base_URL + year + '/' + tile + '/' + filename)
 
         # for u in urls:
@@ -198,8 +191,14 @@ class LandCoverDownload(QgsProcessingAlgorithm):
         for d in url_to_download_list:
             # output = self.parameterAsFile(parameters,'Download directory',context) + os.path.basename(d)
             output = parameters['Download directory'] + '/' + os.path.basename(d)
-            urllib.request.urlretrieve(d, output)
+            alg_params = {
+                "URL": d,
+                "OUTPUT": output
+            }
+            output= processing.run('native:filedownloader', alg_params, context=context, feedback=None, is_child_algorithm=True)
+            feedback.pushInfo(os.path.basename(d))
+            if feedback.isCanceled():
+                feedback.pushInfo("Terminated by user")
+                return {}
 
         return {}
-
-
