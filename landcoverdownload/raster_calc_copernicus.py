@@ -22,15 +22,13 @@
  ***************************************************************************/
 """
 
-__author__ = 'Enrico Ferreguti, Federico Gianoli'
+__author__ = 'Federico Gianoli, JRC'
 __date__ = '2020-12-28'
-__copyright__ = '(C) 2020 by Federico Gianoli'
+__copyright__ = '(C) 2020 by Federico Gianoli, JRC'
 
 # This will get replaced with a git SHA1 when you do a git archive
 
 __revision__ = '$Format:%H$'
-
-# -*- coding: utf-8 -*-
 
 from qgis.core import QgsProcessing
 from qgis.core import QgsProcessingAlgorithm

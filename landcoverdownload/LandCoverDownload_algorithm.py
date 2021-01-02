@@ -111,20 +111,23 @@ class LandCoverDownload(QgsProcessingAlgorithm):
         should provide a basic description about what the algorithm does and the
         parameters and outputs associated with it..
         """
-        return self.tr("Example algorithm short description")
+        return self.tr("""This tool allows to download the Copernicus Land Cover. <br>"""
+                       """<b>Product:</b> it is possible to select the Land Cover product to download. If the choosen product is 'None', al the products will be downloaded. <br>""" \
+                       """<b>Year:</b> allows to select the year of reference for the Land Cover. If the choosen year is 'None', all the years will be downloaded. <br>""" \
+                       """<b>Tile:</b> it is possible to select a specif Tile to download. <br>To choose the tile <a href="https://github.com/fgianoli/CopernicusGlobalLand/blob/master/landcoverdownload/tile/tile.JPG?raw=true">Click here</a>, if the Tile is set to 'None', all the tiles will be downloaded""")
 
 
     def initAlgorithm(self, config=None):
-        self.services = [None,'Bare-CoverFraction-layer', 'BuiltUp-CoverFraction-layer', 'Crops-CoverFraction-layer',
+        self.services = [None, 'Bare-CoverFraction-layer', 'BuiltUp-CoverFraction-layer', 'Crops-CoverFraction-layer',
                          'DataDensityIndicator', 'Discrete-Classification-map', 'Discrete-Classification-proba',
                          'Forest-Type-layer', 'Grass-CoverFraction-layer', 'MossLichen-CoverFraction-layer',
                          'PermanentWater-CoverFraction-layer', 'SeasonalWater-CoverFraction-layer',
                          'Shrub-CoverFraction-layer', 'Snow-CoverFraction-layer', 'Tree-CoverFraction-layer']
-        self.yearlist = [None,'2015', '2016', '2017', '2018', '2019']
+        self.yearlist = ['2015', '2016', '2017', '2018', '2019', None]
 
         self.addParameter(QgsProcessingParameterEnum('prodotto', 'Product', options=self.services, defaultValue=None))
         self.addParameter(QgsProcessingParameterEnum('anno', 'Year', options=self.yearlist, defaultValue=None))
-        # self.addParameter(QgsProcessingParameterString('anno', 'Year', defaultValue=None))
+        # self.addParameter(QgsProcessingParameterString('anno', 'Year', defaultValue=None)
         self.addParameter(QgsProcessingParameterString('nome_tile', 'Tile Name', defaultValue=None, optional=True))
         # self.addParameter(QgsProcessingParameterString('prodotto', 'prodotto', defaultValue='Bare-CoverFraction-layer'))
         self.addParameter(QgsProcessingParameterFile('Download directory', 'Download directory',
