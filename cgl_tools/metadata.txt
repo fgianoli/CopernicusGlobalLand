@@ -1,0 +1,47 @@
+# This file contains metadata for your plugin.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=Copernicus Global Land Tools
+qgisMinimumVersion=3.0
+description=This plugin allows to download easily the Copernicus Global Land products (Land Cover, NDVI, FAPAR, ...).
+version=1
+author=Federico Gianoli
+email=gianoli.federico@gmail.com
+
+about=This plugin allows to download easily the Copernicus Global Land products (Land Cover, NDVI, FAPAR, ...).
+
+tracker=http://bugs
+repository=https://github.com/fgianoli/CopernicusGlobalLand
+# End of mandatory metadata
+
+# Recommended items:
+
+hasProcessingProvider=yes
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=Copernicus, Sentinel, ProbaV, Land Cover, Global Land, ndvi, fapar, WAD
+
+homepage=https://github.com/fgianoli/CopernicusGlobalLand
+category=Analysis
+icon=icon.png
+# experimental flag
+experimental=True
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
+# Since QGIS 3.8, a comma separated list of plugins to be installed
+# (or upgraded) can be specified.
+# Check the documentation for more information.
+# plugin_dependencies=
+
+Category of the plugin: Raster, Vector, Database or Web
+# category=
+
+# If the plugin can run on QGIS Server.
+server=False
+
